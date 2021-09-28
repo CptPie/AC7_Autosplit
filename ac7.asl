@@ -15,6 +15,14 @@ state("Ace7Game")
 
 }
 
+startup
+{
+    settings.Add("missionSubsplits",false,"Do you want to enable score/ace subsplits for missions?");
+    settings.Add("mission6ScoreSplits",false,"Do you want to enable score subsplits for mission 6?","missionSubsplits");
+    settings.Add("mission11ScoreSplits",false,"Do you want to enable score subsplits for mission 11?","missionSubsplits");
+}
+
+
 init
 {
     vars.m6gotBaseReq = false;
@@ -43,37 +51,43 @@ split
         return true;
     }
 
-    // Mission sub splits
-    if(current.missionID==6){
-        // Base requirement
-        if(current.score >= 24000){
-            if(!vars.m6gotBaseReq){
-                vars.m6gotBaseReq = true;
-                return true;
+    if(settings["missionSubsplits"]){
+        if(settings["mission6ScoreSplits"]){
+            // Mission sub splits
+            if(current.missionID==6){
+                // Base requirement
+                if(current.score >= 24000){
+                    if(!vars.m6gotBaseReq){
+                        vars.m6gotBaseReq = true;
+                        return true;
+                    }
+                }
+                // S Rank
+                if(current.score >= 27000){
+                    if(!vars.m6gotSRank){
+                        vars.m6gotSRank = true;
+                        return true;
+                    }
+                }
             }
         }
-        // S Rank
-        if(current.score >= 27000){
-            if(!vars.m6gotSRank){
-                vars.m6gotSRank = true;
-                return true;
-            }
-        }
-    }
-
-    if(current.missionID==6){
-        // Base requirement
-        if(current.score >= 30000){
-            if(!vars.m11gotBaseReq){
-                vars.m11gotBaseReq = true;
-                return true;
-            }
-        }
-        // S Rank
-        if(current.score >= 40000){
-            if(!vars.m11gotSRank){
-                vars.m11gotSRank = true;
-                return true;
+        
+        if(settings["mission11ScoreSplits"]){
+            if(current.missionID==11){
+                // Base requirement
+                if(current.score >= 30000){
+                    if(!vars.m11gotBaseReq){
+                        vars.m11gotBaseReq = true;
+                        return true;
+                    }
+                }
+                // S Rank
+                if(current.score >= 40000){
+                    if(!vars.m11gotSRank){
+                        vars.m11gotSRank = true;
+                        return true;
+                    }
+                }
             }
         }
     }
