@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Run version="1.7.0">
+  <GameIcon />
+  <GameName>Ace Combat 7: Skies Unknown</GameName>
+  <CategoryName>New Game+</CategoryName>
+  <Metadata>
+    <Run id="" />
+    <Platform usesEmulator="False">PC</Platform>
+    <Region>EUR / PAL</Region>
+    <Variables>
+      <Variable name="Restriction">DLC Craft</Variable>
+      <Variable name="NG+ Difficulty">Ace</Variable>
+      <Variable name="Category">S-Ranks + Aces</Variable>
+    </Variables>
+  </Metadata>
+  <Offset>00:00:00</Offset>
+  <AttemptCount>3</AttemptCount>
+  <AttemptHistory>
+    <Attempt id="1" started="06/20/2021 16:11:14" isStartedSynced="True" ended="06/20/2021 16:14:34" isEndedSynced="True" />
+    <Attempt id="2" started="06/20/2021 16:14:49" isStartedSynced="True" ended="06/20/2021 16:18:42" isEndedSynced="True" />
+    <Attempt id="3" started="06/20/2021 16:19:02" isStartedSynced="True" ended="06/20/2021 16:21:17" isEndedSynced="True" />
+    <Attempt id="4" started="06/20/2021 17:32:32" isStartedSynced="True" ended="06/20/2021 17:35:36" isEndedSynced="True" />
+    <Attempt id="5" started="06/20/2021 17:36:31" isStartedSynced="True" ended="06/20/2021 17:38:45" isEndedSynced="True" />
+    <Attempt id="6" started="06/20/2021 17:39:00" isStartedSynced="True" ended="06/20/2021 17:41:15" isEndedSynced="True" />
+    <Attempt id="7" started="06/20/2021 17:41:32" isStartedSynced="True" ended="06/20/2021 17:45:17" isEndedSynced="True" />
+    <Attempt id="8" started="06/20/2021 17:45:33" isStartedSynced="True" ended="06/20/2021 17:47:48" isEndedSynced="True" />
+    <Attempt id="9" started="07/01/2021 16:56:19" isStartedSynced="True" ended="07/01/2021 16:59:54" isEndedSynced="True" />
+    <Attempt id="10" started="07/01/2021 17:00:01" isStartedSynced="True" ended="07/01/2021 17:00:10" isEndedSynced="True">
+      <PauseTime>00:00:01.2710000</PauseTime>
+    </Attempt>
+    <Attempt id="11" started="07/01/2021 17:00:29" isStartedSynced="True" ended="07/01/2021 17:02:36" isEndedSynced="True" />
+    <Attempt id="12" started="07/01/2021 17:02:53" isStartedSynced="True" ended="07/01/2021 17:10:11" isEndedSynced="True" />
+    <Attempt id="13" started="07/01/2021 17:12:07" isStartedSynced="True" ended="07/01/2021 17:16:30" isEndedSynced="True" />
+    <Attempt id="14" started="07/01/2021 17:17:16" isStartedSynced="True" ended="07/01/2021 18:33:51" isEndedSynced="True" />
+    <Attempt id="15" started="07/01/2021 18:39:31" isStartedSynced="True" ended="07/01/2021 18:39:37" isEndedSynced="True" />
+    <Attempt id="16" started="07/12/2021 18:16:15" isStartedSynced="True" ended="07/12/2021 18:18:44" isEndedSynced="True" />
+    <Attempt id="17" started="07/12/2021 18:19:01" isStartedSynced="True" ended="07/12/2021 18:25:00" isEndedSynced="True" />
+    <Attempt id="18" started="07/12/2021 18:31:33" isStartedSynced="True" ended="07/12/2021 18:54:06" isEndedSynced="True" />
+    <Attempt id="19" started="07/12/2021 18:55:57" isStartedSynced="True" ended="07/12/2021 20:13:22" isEndedSynced="True" />
+    <Attempt id="20" started="09/28/2021 20:28:30" isStartedSynced="True" ended="09/28/2021 20:28:35" isEndedSynced="True" />
+    <Attempt id="21" started="09/28/2021 20:44:26" isStartedSynced="True" ended="09/28/2021 20:51:57" isEndedSynced="True" />
+    <Attempt id="22" started="09/28/2021 20:52:50" isStartedSynced="True" ended="09/28/2021 21:28:30" isEndedSynced="True" />
+    <Attempt id="23" started="09/28/2021 21:28:34" isStartedSynced="True" ended="09/28/2021 21:28:44" isEndedSynced="True" />
+    <Attempt id="24" started="09/28/2021 21:28:48" isStartedSynced="True" ended="09/28/2021 21:29:00" isEndedSynced="True" />
+    <Attempt id="25" started="09/28/2021 21:31:23" isStartedSynced="True" ended="09/28/2021 21:31:27" isEndedSynced="True" />
+    <Attempt id="26" started="09/28/2021 21:39:07" isStartedSynced="True" ended="09/28/2021 22:35:25" isEndedSynced="True" />
+    <Attempt id="27" started="09/28/2021 22:50:53" isStartedSynced="True" ended="09/28/2021 22:51:26" isEndedSynced="True" />
+  </AttemptHistory>
+  <Segments>
+    <Segment>
+      <Name>M1 - Pyro - 10.3k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime>
+        <RealTime>00:00:27.4040000</RealTime>
+        <GameTime>00:03:31.1010000</GameTime>
+      </BestSegmentTime>
+      <SegmentHistory>
+        <Time id="26">
+          <RealTime>00:05:45.4580000</RealTime>
+          <GameTime>00:03:31.1010000</GameTime>
+        </Time>
+        <Time id="27">
+          <RealTime>00:00:27.4040000</RealTime>
+        </Time>
+      </SegmentHistory>
+    </Segment>
+    <Segment>
+      <Name>M2 - Jester - 7.5k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime>
+        <RealTime>00:04:57.9010000</RealTime>
+        <GameTime>00:03:16.5790000</GameTime>
+      </BestSegmentTime>
+      <SegmentHistory>
+        <Time id="26">
+          <RealTime>00:04:57.9010000</RealTime>
+          <GameTime>00:03:16.5790000</GameTime>
+        </Time>
+      </SegmentHistory>
+    </Segment>
+    <Segment>
+      <Name>M3 - Bayonet - 16.3k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime>
+        <RealTime>00:10:01.8100000</RealTime>
+        <GameTime>00:07:41.4290000</GameTime>
+      </BestSegmentTime>
+      <SegmentHistory>
+        <Time id="26">
+          <RealTime>00:10:01.8100000</RealTime>
+          <GameTime>00:07:41.4290000</GameTime>
+        </Time>
+      </SegmentHistory>
+    </Segment>
+    <Segment>
+      <Name>M4 - Ronin - 17.5k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime>
+        <RealTime>00:11:37.7240000</RealTime>
+        <GameTime>00:09:23.5360000</GameTime>
+      </BestSegmentTime>
+      <SegmentHistory>
+        <Time id="26">
+          <RealTime>00:11:37.7240000</RealTime>
+          <GameTime>00:09:23.5360000</GameTime>
+        </Time>
+      </SegmentHistory>
+    </Segment>
+    <Segment>
+      <Name>M5 - Fang - 17k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime>
+        <RealTime>00:06:27.0420000</RealTime>
+        <GameTime>00:04:48.6110000</GameTime>
+      </BestSegmentTime>
+      <SegmentHistory>
+        <Time id="26">
+          <RealTime>00:06:27.0420000</RealTime>
+          <GameTime>00:04:48.6110000</GameTime>
+        </Time>
+      </SegmentHistory>
+    </Segment>
+    <Segment>
+      <Name>-24k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime>
+        <RealTime>00:08:18.5780000</RealTime>
+        <GameTime>00:06:49.0490000</GameTime>
+      </BestSegmentTime>
+      <SegmentHistory>
+        <Time id="26">
+          <RealTime>00:08:18.5780000</RealTime>
+          <GameTime>00:06:49.0490000</GameTime>
+        </Time>
+      </SegmentHistory>
+    </Segment>
+    <Segment>
+      <Name>-27k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime>
+        <RealTime>00:01:57.2330000</RealTime>
+        <GameTime>00:01:54.9300000</GameTime>
+      </BestSegmentTime>
+      <SegmentHistory>
+        <Time id="26">
+          <RealTime>00:01:57.2330000</RealTime>
+          <GameTime>00:01:54.9300000</GameTime>
+        </Time>
+      </SegmentHistory>
+    </Segment>
+    <Segment>
+      <Name>{M6 - Kitten} End</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime>
+        <RealTime>00:06:54.7400000</RealTime>
+        <GameTime>00:06:16.0130000</GameTime>
+      </BestSegmentTime>
+      <SegmentHistory>
+        <Time id="26">
+          <RealTime>00:06:54.7400000</RealTime>
+          <GameTime>00:06:16.0130000</GameTime>
+        </Time>
+      </SegmentHistory>
+    </Segment>
+    <Segment>
+      <Name>M7 - Faucon - 5.5k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M8 - Gazelle - 28.5k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M9 - Spider - 11.7k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M10 - Louveteau - 7.8k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>-30k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>-40k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>{M11 - Chasseur, Ibis} End</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M12 - Walrus, Foudre, Buffle - 34.7k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M13 - Comet - 18.7k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M14 - Gadfly - 14k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M15 - Serpent, Bogen - 35.3k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M16 - Axeman - 19.8k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M17 - Mantis - 25k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M18 - Lynx - 11.5k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M19 - Calamity, Tempest - 50.7k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+    <Segment>
+      <Name>M20 - none - 10.5k</Name>
+      <Icon />
+      <SplitTimes>
+        <SplitTime name="Personal Best" />
+      </SplitTimes>
+      <BestSegmentTime />
+      <SegmentHistory />
+    </Segment>
+  </Segments>
+  <AutoSplitterSettings />
+</Run>
