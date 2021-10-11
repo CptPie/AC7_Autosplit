@@ -19,6 +19,7 @@ state("Ace7Game")
 
 startup
 {
+    settings.Add("SplitterVerson",false,"Version: v1.2");
     settings.Add("SRankCheck",false,"Do you want to check for S-Ranks before splitting automatically?");
     settings.Add("missionSubsplits",false,"Do you want to enable score/ace subsplits for missions?");
     settings.Add("mission6ScoreSplits",false,"Do you want to enable score subsplits for mission 6?","missionSubsplits");
@@ -55,7 +56,10 @@ split
     if(settings["SRankCheck"])
     {
         // Do we want to split?
-        if(current.score==0 && old.score>current.score)
+        if(
+            current.score==0 && old.score>current.score // Score mem location got cleared out, either score reset or misson struct got garbage collected
+            && old.IGT!=current.IGT // Did the timer change? if it did, its a checkpoint restart
+        )
         {
             print("SRank Splitting");
             // We have to check the S-Rank condition for each mission
@@ -249,8 +253,12 @@ split
             }
         }
     } else {
+        // TODO: restart from checkpoint with a checkpoint that resets you to 0 score splits
         // split if the score variable gets cleared out (transition to mission results)
-        if(current.score==0 && old.score>current.score)
+        if(
+            current.score==0 && old.score>current.score // Score mem location got cleared out, either score reset or misson struct got garbage collected
+            && old.IGT!=current.IGT // Did the timer change? if it did, its a checkpoint restart
+        )
         {
             return true;
         }
