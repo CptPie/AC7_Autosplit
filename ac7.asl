@@ -3,23 +3,36 @@
 state("Ace7Game")
 {
     // Current destruction score (top left) achived
-    int score: 0x03A56080, 0x55C;
+    int score: 0x03A56080, 0x55C; // 0 when transition
     // Ingametime according to the game (perfectly mirrors the mission result screen)
-    float IGT: 0x03A7D0A8, 0xF8, 0x50, 0x20, 0x128, 0x24;
+    float IGT: 0x03A7D0A8, 0xF8, 0x50, 0x20, 0x128, 0x24; // undefined when transition
     // Number of kills (might be useful?)
-    int kills: 0x03A56080, 0x520, 0x88, 0x5A0;
+    int kills: 0x03A56080, 0x520, 0x88, 0x5A0; // 0 when transition
     // Some sort of state?
-    int state: 0x03A56080, 0x450, 0x428, 0x5A4;
+    int state: 0x03A56080, 0x450, 0x428, 0x5A4; // undefined when transition
+    // State "debugging"
+    // Mission 1
+    // x x x x x x x x
+    // | | | | | | | \
+    // | | | | | | \ - triggered as i killed all 4
+    // | | | | | \ - - killed smth?
+    // | | | | \ - - - 
+    // | | | \ - - - - triggered as i killed all 4
+    // | | \ - - - - -
+    // | \ - - - - - -
+    // \ - - - - - - -
+
     // Mission number
     // Main game: 1 through 20
     // DLC missions: 1, 2, 3 (but there has to be some other flag ...)
-    int missionID: 0x03A56080, 0x470;
+    int missionID: 0x03A56080, 0x470; // persists into replay
+    int paused: 0x03A56080, 0x3E0; // Game pause flag
 
 }
 
 startup
 {
-    settings.Add("SplitterVerson",false,"Version: v1.2.1");
+    settings.Add("SplitterVerson",false,"Version: v1.2.2");
     settings.Add("SRankCheck",false,"Do you want to check for S-Ranks before splitting automatically?");
     settings.Add("missionSubsplits",false,"Do you want to enable score/ace subsplits for missions?");
     settings.Add("mission6ScoreSplits",false,"Do you want to enable score subsplits for mission 6?","missionSubsplits");
@@ -35,6 +48,8 @@ init
     vars.m11gotBaseReq = false;
     vars.m11gotSRank = false;
     vars.totalIGT = 0;
+    vars.wasPaused = false;
+    vars.wasPausedCounter = 100;
 }
 
 start
@@ -45,6 +60,8 @@ start
     vars.m11gotBaseReq = false;
     vars.m11gotSRank = false;
     vars.totalIGT = 0;
+    vars.wasPaused = false;
+    vars.wasPausedCounter = 100;
     if(old.IGT == 0 && current.IGT > old.IGT){
         return true;
     }
@@ -52,14 +69,30 @@ start
 
 split
 {
+    // Primitive pause detection - was the game paused in the last 100 cycles (frames)
+    if(current.paused==11){
+        vars.wasPaused = true;
+    }
+    if(vars.wasPaused){
+        if(vars.wasPausedCounter==0){
+            vars.wasPausedCounter = 100;
+            vars.wasPaused = false;
+        } else {
+            vars.wasPausedCounter = vars.wasPausedCounter-1;
+        }
+    }
 
-    if(settings["SRankCheck"])
+    // Do we want to split?
+    if(
+        current.score==0 && old.score>current.score 
+        // The score got 0ed - either mission ended (struct cleared) or checkpoint with score of 0 got loaded
+        && !vars.wasPaused
+    )
     {
+        print("old: "+old.paused.ToString()+" new: "+current.paused.ToString());
+        print("split!");
         // Do we want to split?
-        if(
-            current.score==0 && old.score>current.score // Score mem location got cleared out, either score reset or misson struct got garbage collected
-            // && old.IGT!=current.IGT // Did the IGT change? - If it didn't, the mission struct got not cleared -> checkpoint restart
-        )
+        if (settings["SRankCheck"])
         {
             print("SRank Splitting");
             // We have to check the S-Rank condition for each mission
@@ -251,18 +284,10 @@ split
             } else {
                 vars.Reset=true;
             }
-        }
-    } else {
-        // TODO: restart from checkpoint with a checkpoint that resets you to 0 score splits
-        // split if the score variable gets cleared out (transition to mission results)
-        if(
-            current.score==0 && old.score>current.score // Score mem location got cleared out, either score reset or misson struct got garbage collected
-            // && old.IGT!=current.IGT // Did the IGT change? - If it didn't, the mission struct got not cleared -> checkpoint restart
-        )
-        {
+        } else {
             return true;
         }
-    }   
+    }  
    
 
     if(settings["missionSubsplits"])
