@@ -37,6 +37,7 @@ startup
     settings.Add("missionSubsplits",false,"Do you want to enable score/ace subsplits for missions?");
     settings.Add("mission6ScoreSplits",false,"Do you want to enable score subsplits for mission 6?","missionSubsplits");
     settings.Add("mission11ScoreSplits",false,"Do you want to enable score subsplits for mission 11?","missionSubsplits");
+    settings.Add("ilMode",false,"Do you want to enable 'IL Mode'? In this mode the splitter will automatically reset when the mission data gets cleared. Only use this in IL runs otherwise the autosplitter will reset after every mission played.");
 }
 
 
@@ -367,5 +368,28 @@ isLoading
 
 reset
 {
-    return vars.Reset;
+    if(settings["ilMode"]){
+        if(current.paused==11){
+        vars.wasPaused = true;
+        }
+        if(vars.wasPaused){
+            if(vars.wasPausedCounter==0){
+                vars.wasPausedCounter = 100;
+                vars.wasPaused = false;
+            } else {
+                vars.wasPausedCounter = vars.wasPausedCounter-1;
+            }
+        }
+
+        // Do we want to reset?
+        if(
+            current.IGT < vars.totalIGT 
+            // The score got 0ed - either mission ended (struct cleared) or checkpoint with score of 0 got loaded
+            && !vars.wasPaused
+        ) {
+        return true;
+        }
+    } else {
+        return vars.Reset;
+    }
 }
