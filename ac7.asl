@@ -145,25 +145,49 @@ split
             switch (mission)
             {
                 case 1:
-                    print("Misson 1");
-                    sRankScoreRequirement = 20530;
-                    targetTime = new TimeSpan(0,4,50);
-                    timeScore = 10230;
-                    penalty = 30;
+                    if (current.paused==8 || current.paused==11){
+                        print("Misson 1");
+                        sRankScoreRequirement = 20530;
+                        targetTime = new TimeSpan(0,4,50);
+                        timeScore = 10230;
+                        penalty = 30;
+                    } else if (current.paused==35 || current.paused==38) {
+                        print("SP 1");
+                        sRankScoreRequirement = 58000;
+                        targetTime = new TimeSpan(0,17,0);
+                        timeScore = 15000;
+                        penalty = 300; // maybe a typo?
+                    }
                     break;
                 case 2:
-                    print("Misson 2");
-                    sRankScoreRequirement = 33050;
-                    targetTime = new TimeSpan(0,6,0);
-                    timeScore = 25550;
-                    penalty = 50;
+                    if (current.paused==5 || current.paused==8){
+                        print("Misson 2");
+                        sRankScoreRequirement = 33050;
+                        targetTime = new TimeSpan(0,6,0);
+                        timeScore = 25550;
+                        penalty = 50;
+                    } else if(current.paused==16 || current.paused==19){
+                        print("SP 2");
+                        sRankScoreRequirement = 70000;
+                        targetTime = new TimeSpan(0,19,0);
+                        timeScore = 8100;
+                        penalty = 30;
+                    }
                     break;
                 case 3:
-                    print("Misson 3");
-                    sRankScoreRequirement = 44440;
-                    targetTime = new TimeSpan(0,9,0);
-                    timeScore = 27640;
-                    penalty = 40;
+                    if (current.paused==6 || current.paused==9){
+                        print("Misson 3");
+                        sRankScoreRequirement = 44440;
+                        targetTime = new TimeSpan(0,9,0);
+                        timeScore = 27640;
+                        penalty = 40;
+                    } else if (current.paused==9 || current.paused==12) {
+                        print("SP 3");
+                        sRankScoreRequirement = 117000;
+                        targetTime = new TimeSpan(0,14,0);
+                        timeScore = 81000;
+                        penalty = 225;
+                    }
                     break;
                 case 4:
                     print("Misson 4");
