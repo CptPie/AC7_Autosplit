@@ -23,10 +23,31 @@ state("Ace7Game")
     // \ - - - - - - -
 
     // Mission number
-    // Main game: 1 through 20
-    // DLC missions: 1, 2, 3 (but there has to be some other flag ...)
     int missionID: 0x03A56080, 0x470; // persists into replay
-    int paused: 0x03A56080, 0x3E0; // Game pause flag
+    int paused: 0x03A56080, 0x3E0; // Game pause flag (apparently different depending on the mission ... see list below)
+    // M1 - 8 (1000) and 11 (1011) 
+    // M2 - 5 (101) and 8 (1000)
+    // M3 - 6 (110) and 9 (1001)
+    // M4 - 39 (100111) and 42 (101010)
+    // M5 - 13 (1101) and 16 (10000)
+    // M6 - 6 (110) and 9 (1001)
+    // M7 - 19 (10011) and 22 (10110)
+    // M8 - 5 (101) and 8 (1000)
+    // M9 - 10101 - 11000
+    // M10 - 111 - 1010
+    // M11 - 1101 - 10000
+    // M12 - 101 - 1000
+    // M13 - 101 - 1000
+    // M14 - 101 - 1000
+    // M15 - 10001 - 10100
+    // M16 - 1011 - 1110
+    // M17 - 101 - 1000
+    // M18 - 110 - 1001
+    // M19 - 1011011 - 1011110
+    // M20 - 1101 - 10000
+    // SP1 - 100011 - 100110
+    // SP2 - 10000 - 10011
+    // SP3 - 1001 - 1100
 
 }
 
@@ -90,7 +111,6 @@ split
         && !vars.wasPaused
     )
     {
-        print("old: "+old.paused.ToString()+" new: "+current.paused.ToString());
         print("split!");
         // Do we want to split?
         if (settings["SRankCheck"])
@@ -210,7 +230,6 @@ split
                     timeScore = 19240;
                     penalty = 40;
                     break;
-                    // TODO Special missions?
                 case 14:
                     print("Misson 14");
                     sRankScoreRequirement = 32640;
