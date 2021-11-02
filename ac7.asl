@@ -89,12 +89,13 @@ start
     }
 }
 
-split
+update
 {
     // Primitive pause detection - was the game paused in the last 100 cycles (frames)
-    if(current.paused==11){
+    if(current.paused>old.paused && (current.paused-old.paused)==3){
         vars.wasPaused = true;
     }
+
     if(vars.wasPaused){
         if(vars.wasPausedCounter==0){
             vars.wasPausedCounter = 100;
@@ -103,7 +104,11 @@ split
             vars.wasPausedCounter = vars.wasPausedCounter-1;
         }
     }
+}
 
+
+split
+{
     // Do we want to split?
     if(
         current.score==0 && old.score>current.score 
@@ -388,18 +393,6 @@ isLoading
 reset
 {
     if(settings["ilMode"]){
-        if(current.paused==11){
-        vars.wasPaused = true;
-        }
-        if(vars.wasPaused){
-            if(vars.wasPausedCounter==0){
-                vars.wasPausedCounter = 100;
-                vars.wasPaused = false;
-            } else {
-                vars.wasPausedCounter = vars.wasPausedCounter-1;
-            }
-        }
-
         // Do we want to reset?
         if(
             current.IGT < vars.totalIGT 
