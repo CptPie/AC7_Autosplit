@@ -53,7 +53,7 @@ state("Ace7Game")
 
 startup
 {
-    settings.Add("SplitterVerson",false,"Version: v1.3");
+    settings.Add("SplitterVerson",false,"Version: v1.4");
     settings.Add("SRankCheck",false,"Do you want to check for S-Ranks before splitting automatically?");
     settings.Add("missionSubsplits",false,"Do you want to enable score/ace subsplits for missions?");
     settings.Add("mission6ScoreSplits",false,"Do you want to enable score subsplits for mission 6?","missionSubsplits");
