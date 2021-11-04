@@ -53,8 +53,8 @@ state("Ace7Game")
 
 startup
 {
-    settings.Add("SplitterVerson",false,"Version: v1.4");
-    settings.Add("SRankCheck",false,"Do you want to check for S-Ranks before splitting automatically?");
+    settings.Add("SplitterVerson",false,"Version: v1.4.1");
+    settings.Add("SRankCheck",false,"Do you want to check for S-Ranks before splitting automatically? This will reset if no S-Rank was achived.");
     settings.Add("missionSubsplits",false,"Do you want to enable score/ace subsplits for missions?");
     settings.Add("mission6ScoreSplits",false,"Do you want to enable score subsplits for mission 6?","missionSubsplits");
     settings.Add("mission11ScoreSplits",false,"Do you want to enable score subsplits for mission 11?","missionSubsplits");
@@ -70,8 +70,10 @@ init
     vars.m11gotBaseReq = false;
     vars.m11gotSRank = false;
     vars.totalIGT = 0;
+    vars.gameRunningVal = 0;
+    vars.isPaused = false;
     vars.wasPaused = false;
-    vars.wasPausedCounter = 100;
+    vars.wasPausedCounter = 0;
 }
 
 start
@@ -82,8 +84,10 @@ start
     vars.m11gotBaseReq = false;
     vars.m11gotSRank = false;
     vars.totalIGT = 0;
+    vars.gameRunningVal = 0;
+    vars.isPaused = false;
     vars.wasPaused = false;
-    vars.wasPausedCounter = 100;
+    vars.wasPausedCounter = 0;
     if(old.IGT == 0 && current.IGT > old.IGT){
         return true;
     }
@@ -91,21 +95,36 @@ start
 
 update
 {
-    // Primitive pause detection - was the game paused in the last 100 cycles (frames)
-    if(current.paused>old.paused && (current.paused-old.paused)==3){
-        vars.wasPaused = true;
+    // Pause detection
+    if(current.IGT != old.IGT){
+        // Hopefully save the running val somewhat persistantly
+        vars.gameRunningVal=current.paused;
     }
 
-    if(vars.wasPaused){
-        if(vars.wasPausedCounter==0){
-            vars.wasPausedCounter = 100;
+    if(current.paused != vars.gameRunningVal) {
+        // Game is currently paused
+        vars.isPaused = true;
+    }
+
+    if(current.paused == vars.gameRunningVal && vars.isPaused){
+        // Game is no longer paused but WAS paused
+        vars.isPaused = false;
+        vars.wasPaused = true;
+        vars.wasPausedCounter = 100;
+    }
+
+    if (vars.wasPaused) {
+        // Countdown for the wasPaused flag
+        if (vars.wasPausedCounter==0){
             vars.wasPaused = false;
         } else {
-            vars.wasPausedCounter = vars.wasPausedCounter-1;
+            vars.wasPausedCounter = vars.wasPausedCounter -1;
         }
     }
+    print("is: "+vars.isPaused.ToString()+" was: "+vars.wasPaused.ToString()+" timer: "+vars.wasPausedCounter.ToString());
 }
 
+// TODO bug in mission 4 - i guess the end cutscene fucks smth up
 
 split
 {
@@ -113,7 +132,7 @@ split
     if(
         current.score==0 && old.score>current.score 
         // The score got 0ed - either mission ended (struct cleared) or checkpoint with score of 0 got loaded
-        && !vars.wasPaused
+        && !vars.isPaused && !vars.wasPaused
     )
     {
         print("split!");
@@ -421,7 +440,7 @@ reset
         if(
             current.IGT < vars.totalIGT 
             // The score got 0ed - either mission ended (struct cleared) or checkpoint with score of 0 got loaded
-            && !vars.wasPaused
+            && !vars.isPaused && !vars.wasPaused
         ) {
         return true;
         }
