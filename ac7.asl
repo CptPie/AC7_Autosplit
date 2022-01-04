@@ -3,57 +3,68 @@
 state("Ace7Game")
 {
     // Current destruction score (top left) achived
-    int score: 0x03A56080, 0x55C; // 0 when transition
+    //int score: 0x03A56080, 0x55C; // pre update
+    int score: 0x03A58580, 0x55C; // 0 when transition
+
     // Ingametime according to the game (perfectly mirrors the mission result screen)
-    float IGT: 0x03A7D0A8, 0xF8, 0x50, 0x20, 0x128, 0x24; // undefined when transition
+    float IGT: 0x03A58580, 0x528; // undefined when transition
+
     // Number of kills (might be useful?)
-    int kills: 0x03A56080, 0x520, 0x88, 0x5A0; // 0 when transition
+    //int kills: 0x03A56080, 0x520, 0x88, 0x5A0; // pre update
+    int kills: 0x03A58580, 0x520, 0x88, 0x5A0; // 0 when transition
+
     // Some sort of state?
-    int state: 0x03A56080, 0x450, 0x428, 0x5A4; // undefined when transition
-    // State "debugging"
-    // Mission 1
-    // x x x x x x x x
-    // | | | | | | | \
-    // | | | | | | \ - triggered as i killed all 4
-    // | | | | | \ - - killed smth?
-    // | | | | \ - - - 
-    // | | | \ - - - - triggered as i killed all 4
-    // | | \ - - - - -
-    // | \ - - - - - -
-    // \ - - - - - - -
+    //int state: 0x03A56080, 0x450, 0x428, 0x5A4; // pre update
+    int state: 0x03A58580, 0x450, 0x428, 0x5A4; // undefined when transition
+
+            // State "debugging"
+            // Mission 1
+            // x x x x x x x x
+            // | | | | | | | \
+            // | | | | | | \ - triggered as i killed all 4
+            // | | | | | \ - - killed smth?
+            // | | | | \ - - - 
+            // | | | \ - - - - triggered as i killed all 4
+            // | | \ - - - - -
+            // | \ - - - - - -
+            // \ - - - - - - -
 
     // Mission number
-    int missionID: 0x03A56080, 0x470; // persists into replay
-    int paused: 0x03A56080, 0x3E0; // Game pause flag (apparently different depending on the mission ... see list below)
-    // M1 - 8 (1000) and 11 (1011) 
-    // M2 - 5 (101) and 8 (1000)
-    // M3 - 6 (110) and 9 (1001)
-    // M4 - 39 (100111) and 42 (101010)
-    // M5 - 13 (1101) and 16 (10000)
-    // M6 - 6 (110) and 9 (1001)
-    // M7 - 19 (10011) and 22 (10110)
-    // M8 - 5 (101) and 8 (1000)
-    // M9 - 10101 - 11000
-    // M10 - 111 - 1010
-    // M11 - 1101 - 10000
-    // M12 - 101 - 1000
-    // M13 - 101 - 1000
-    // M14 - 101 - 1000
-    // M15 - 10001 - 10100
-    // M16 - 1011 - 1110
-    // M17 - 101 - 1000
-    // M18 - 110 - 1001
-    // M19 - 1011011 - 1011110
-    // M20 - 1101 - 10000
-    // SP1 - 100011 - 100110
-    // SP2 - 10000 - 10011
-    // SP3 - 1001 - 1100
+    //int missionID: 0x03A56080, 0x470; // pre update
+    int missionID: 0x03A58580, 0x470; // persists into replay
+
+    // Pause flag
+    //int paused: 0x03A56080, 0x3E0; // pre update
+    int paused: 0x03A58580, 0x3E0; // Game pause flag (apparently different depending on the mission ... see list below)
+            // M1 - 8 (1000) and 11 (1011) 
+            // M2 - 5 (101) and 8 (1000)
+            // M3 - 6 (110) and 9 (1001)
+            // M4 - 39 (100111) and 42 (101010)
+            // M5 - 13 (1101) and 16 (10000)
+            // M6 - 6 (110) and 9 (1001)
+            // M7 - 19 (10011) and 22 (10110)
+            // M8 - 5 (101) and 8 (1000)
+            // M9 - 10101 - 11000
+            // M10 - 111 - 1010
+            // M11 - 1101 - 10000
+            // M12 - 101 - 1000
+            // M13 - 101 - 1000
+            // M14 - 101 - 1000
+            // M15 - 10001 - 10100
+            // M16 - 1011 - 1110
+            // M17 - 101 - 1000
+            // M18 - 110 - 1001
+            // M19 - 1011011 - 1011110
+            // M20 - 1101 - 10000
+            // SP1 - 100011 - 100110
+            // SP2 - 10000 - 10011
+            // SP3 - 1001 - 1100
 
 }
 
 startup
 {
-    settings.Add("SplitterVerson",false,"Version: v1.4.1");
+    settings.Add("SplitterVerson",false,"Version: v1.5");
     settings.Add("SRankCheck",false,"Do you want to check for S-Ranks before splitting automatically? This will reset if no S-Rank was achived.");
     settings.Add("missionSubsplits",false,"Do you want to enable score/ace subsplits for missions?");
     settings.Add("mission6ScoreSplits",false,"Do you want to enable score subsplits for mission 6?","missionSubsplits");
@@ -121,17 +132,22 @@ update
             vars.wasPausedCounter = vars.wasPausedCounter -1;
         }
     }
-    print("is: "+vars.isPaused.ToString()+" was: "+vars.wasPaused.ToString()+" timer: "+vars.wasPausedCounter.ToString());
+    //print("is: "+vars.isPaused.ToString()+" was: "+vars.wasPaused.ToString()+" timer: "+vars.wasPausedCounter.ToString());
 }
 
 // TODO bug in mission 4 - i guess the end cutscene fucks smth up
+// For reference https://clips.twitch.tv/PolishedConfidentAsteriskGrammarKing-F4LlBkUPOoujigoo
+// Further reference https://clips.twitch.tv/AmusedBlatantBaconEleGiggle-o79R44SBwRKKCebq
+// 
+// Only appears in campaign?
+
 
 split
 {
     // Do we want to split?
     if(
-        current.score==0 && old.score>current.score 
-        // The score got 0ed - either mission ended (struct cleared) or checkpoint with score of 0 got loaded
+        old.score>current.score 
+        // The score got decresed
         && !vars.isPaused && !vars.wasPaused
     )
     {
