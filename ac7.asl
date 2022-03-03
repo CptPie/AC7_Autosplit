@@ -59,7 +59,7 @@ state("Ace7Game")
 
 startup
 {
-    settings.Add("SplitterVerson",false,"Version: v1.5.1");
+    settings.Add("SplitterVerson",false,"Version: v1.5.2");
     settings.Add("SRankCheck",false,"Do you want to check for S-Ranks before splitting automatically? This will reset if no S-Rank was achived.");
     settings.Add("missionSubsplits",false,"Do you want to enable score/ace subsplits for missions?");
     settings.Add("mission6ScoreSplits",false,"Do you want to enable score subsplits for mission 6?","missionSubsplits");
@@ -80,6 +80,7 @@ init
     vars.isPaused = false;
     vars.wasPaused = false;
     vars.wasPausedCounter = 0;
+    vars.ResetGrace = 0;
 }
 
 start
@@ -126,6 +127,10 @@ update
         } else {
             vars.wasPausedCounter = vars.wasPausedCounter -1;
         }
+    }
+
+    if (vars.ResetGrace!=0){
+        vars.ResetGrace = vars.ResetGrace - 1;
     }
     //print("is: "+vars.isPaused.ToString()+" was: "+vars.wasPaused.ToString()+" timer: "+vars.wasPausedCounter.ToString());
 }
@@ -179,13 +184,13 @@ split
                         print("Misson 1");
                         sRankScoreRequirement = 20530;
                         targetTime = new TimeSpan(0,4,50);
-                        timeScore = 10230;
+                        timeScore = 10230; // 10290 Dest Score
                         penalty = 30;
                     } else if (current.paused==35 || current.paused==38) {
                         print("SP 1");
                         sRankScoreRequirement = 58000;
                         targetTime = new TimeSpan(0,17,0);
-                        timeScore = 15000;
+                        timeScore = 15000; // 43000 Dest Score
                         penalty = 300; // maybe a typo?
                     }
                     break;
@@ -194,13 +199,13 @@ split
                         print("Misson 2");
                         sRankScoreRequirement = 33050;
                         targetTime = new TimeSpan(0,6,0);
-                        timeScore = 25550;
+                        timeScore = 25550; // 7500 Dest Score
                         penalty = 50;
                     } else if(current.paused==16 || current.paused==19){
                         print("SP 2");
                         sRankScoreRequirement = 70000;
                         targetTime = new TimeSpan(0,19,0);
-                        timeScore = 8100;
+                        timeScore = 8100; // 61900 Dest score
                         penalty = 30;
                     }
                     break;
@@ -209,13 +214,13 @@ split
                         print("Misson 3");
                         sRankScoreRequirement = 44440;
                         targetTime = new TimeSpan(0,9,0);
-                        timeScore = 27640;
+                        timeScore = 27640; // 16800 Dest score
                         penalty = 40;
                     } else if (current.paused==9 || current.paused==12) {
                         print("SP 3");
                         sRankScoreRequirement = 117000;
                         targetTime = new TimeSpan(0,14,0);
-                        timeScore = 81000;
+                        timeScore = 81000; // 36000 Dest score
                         penalty = 225;
                     }
                     break;
@@ -223,14 +228,14 @@ split
                     print("Misson 4");
                     sRankScoreRequirement = 50240;
                     targetTime = new TimeSpan(0,10,30);
-                    timeScore = 32440;
+                    timeScore = 32440; // 17800
                     penalty = 40;
                     break;
                 case 5:
                     print("Misson 5");
                     sRankScoreRequirement = 34740;
                     targetTime = new TimeSpan(0,8,0);
-                    timeScore = 18040;
+                    timeScore = 18040; // 16700
                     penalty = 40;
                     break;
                 case 6:
@@ -244,28 +249,28 @@ split
                     print("Misson 7");
                     sRankScoreRequirement = 46350;
                     targetTime = new TimeSpan(0,12,30);
-                    timeScore = 40550;
+                    timeScore = 40550; // 5800
                     penalty = 50;
                     break;
                 case 8:
                     print("Misson 8");
                     sRankScoreRequirement = 40550;
                     targetTime = new TimeSpan(0,10,0);
-                    timeScore = 12050;
+                    timeScore = 12050; // 28500
                     penalty = 50;
                     break;
                 case 9:
                     print("Misson 9");
                     sRankScoreRequirement = 43040;
                     targetTime = new TimeSpan(0,11,0);
-                    timeScore = 31240;
+                    timeScore = 31240; // 11800
                     penalty = 40;
                     break;
                 case 10:
                     print("Misson 10");
                     sRankScoreRequirement = 27540;
                     targetTime = new TimeSpan(0,12,0);
-                    timeScore = 19240;
+                    timeScore = 19240; // 8300
                     penalty = 40;
                     break;
                 case 11:
@@ -279,63 +284,63 @@ split
                     print("Misson 12");
                     sRankScoreRequirement = 49630;
                     targetTime = new TimeSpan(0,16,30);
-                    timeScore = 15330;
+                    timeScore = 15330; // 34300
                     penalty = 30;
                     break; 
                 case 13:
                     print("Misson 13");
                     sRankScoreRequirement = 38040;
                     targetTime = new TimeSpan(0,7,0);
-                    timeScore = 19240;
+                    timeScore = 19240; // 18800
                     penalty = 40;
                     break;
                 case 14:
                     print("Misson 14");
                     sRankScoreRequirement = 32640;
                     targetTime = new TimeSpan(0,9,0);
-                    timeScore = 18040;
+                    timeScore = 18040; // 14600
                     penalty = 40;
                     break;   
                 case 15:
                     print("Misson 15");
                     sRankScoreRequirement = 57200;
                     targetTime = new TimeSpan(0,21,30);
-                    timeScore = 21700;
+                    timeScore = 21700; // 35500
                     penalty = 50;
                     break; 
                 case 16:
                     print("Misson 16");
                     sRankScoreRequirement = 39040;
                     targetTime = new TimeSpan(0,18,0);
-                    timeScore = 19240;
+                    timeScore = 19240; // 19800
                     penalty = 40;
                     break;             
                 case 17:
                     print("Misson 17");
                     sRankScoreRequirement = 44030;
                     targetTime = new TimeSpan(0,15,30);
-                    timeScore = 18930;
+                    timeScore = 18930; // 25100
                     penalty = 30;
                     break;
                 case 18:
                     print("Misson 18");
                     sRankScoreRequirement = 37050;
                     targetTime = new TimeSpan(0,12,30);
-                    timeScore = 25550;
+                    timeScore = 25550; // 11500
                     penalty = 50;
                     break;
                 case 19:
                     print("Misson 19");
                     sRankScoreRequirement = 67640;
                     targetTime = new TimeSpan(0,20,30);
-                    timeScore = 16840;
+                    timeScore = 16840; // 50800
                     penalty = 40;
                     break;
                 case 20:
                     print("Misson 20");
                     sRankScoreRequirement = 36050;
                     targetTime = new TimeSpan(0,10,0);
-                    timeScore = 25550;
+                    timeScore = 25550; // 10500
                     penalty = 50;
                     break;
                 default:
@@ -449,13 +454,18 @@ reset
     if(settings["ilMode"]){
         // Do we want to reset?
         if(
-            current.IGT < vars.totalIGT 
-            // The score got 0ed - either mission ended (struct cleared) or checkpoint with score of 0 got loaded
-            && !vars.isPaused && !vars.wasPaused
+            // current.IGT != vars.totalIGT
+            // // The score got 0ed - either mission ended (struct cleared) or checkpoint with score of 0 got loaded
+            // && !vars.isPaused && !vars.wasPaused
+            //!vars.isPaused && !vars.wasPaused &&
+            current.IGT==0 && vars.ResetGrace==0
         ) {
-        return true;
+            print("RESET");
+            vars.ResetGrace=100;
+            return true;
         }
     } else {
+        print("RESET");
         return vars.Reset;
     }
 }
