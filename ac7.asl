@@ -2,17 +2,19 @@
 // Pointer base value: "Ace7Game.exe"+{first part of the address}
 state("Ace7Game")
 {
+    
+    
     // Current destruction score (top left) achived
-    int score: 0x03A58680, 0x55C; // 0 when transition
+    int score: 0x03A58780, 0x55C; // 0 when transition
 
     // Ingametime according to the game (perfectly mirrors the mission result screen)
-    float IGT: 0x03A58680, 0x528; // undefined when transition
+    float IGT: 0x03A58780, 0x528; // undefined when transition
 
     // Number of kills (might be useful?)
-    int kills: 0x03A58680, 0x520, 0x88, 0x5A0; // 0 when transition
+    int kills: 0x03A58780, 0x520, 0x88, 0x5A0; // 0 when transition
 
     // Some sort of state?
-    int state: 0x03A58680, 0x450, 0x428, 0x5A4; // undefined when transition
+    int state: 0x03A58780, 0x450, 0x428, 0x5A4; // undefined when transition
 
             // State "debugging"
             // Mission 1
@@ -27,10 +29,10 @@ state("Ace7Game")
             // \ - - - - - - -
 
     // Mission number
-    int missionID: 0x03A58680, 0x470; // persists into replay
+    int missionID: 0x03A58780, 0x470; // persists into replay
 
     // Pause flag
-    int paused: 0x03A58680, 0x3E0; // Game pause flag (apparently different depending on the mission ... see list below)
+    int paused: 0x03A58780, 0x3E0; // Game pause flag (apparently different depending on the mission ... see list below)
             // M1 - 8 (1000) and 11 (1011) 
             // M2 - 5 (101) and 8 (1000)
             // M3 - 6 (110) and 9 (1001)
